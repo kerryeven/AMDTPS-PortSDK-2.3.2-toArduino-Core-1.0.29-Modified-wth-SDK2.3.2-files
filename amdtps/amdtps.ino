@@ -1,11 +1,6 @@
 /*
-  Analog to digital conversion
-  By: Owen Lyke
-  SparkFun Electronics
-  Date: Aug 27, 2019
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
+  BLE <-> Android Phone communication
+  
   This example demonstrates basic BLE server (peripheral) functionality for the Apollo3 boards.
 
   How to use this example:
@@ -14,19 +9,22 @@
       (it is used to determine which pin controls the LED)
     - Compile and upload the example to your board with the Arduino "Upload" button
     - In the nRF Connect app look for the device in the "scan" tab. 
-        (By default it is called "Artemis BLE" but you can change that below)
+        (By default it is called "Amdtp" but you can change that below)
     - Once the device is found click "connect"
-    - The GATT server will load with 5 services:
+    - The GATT server will load with 4 services:
       - Generic Access
       - Generic Attribute
-      - Link Loss
-      - Immediate Alert
-      - Tx Power
-    - For this example we've hooked into the 'Immediate Alert' service. 
-        You can click on that pane and it will expand to show an "upload"  button.
-        Use the upload button to write one of three values (0x00, 0x01, or 0x02)
-    - When you send '0x00' (aka 'No alert') the LED will be set to off
-    - When you send either '0x01' or '0x02' the LED will be set to on
+      - Device Information
+      - Unknown Service
+    - For this example I've hooked into the 'Unknown' service. 
+        You can click on that pane and it will expand to show Unknown Characteristic
+        with an up arrow underlined to the right.  Tap the arrow to see a Write Value Panel.
+        Tap down arrow to right of BYTE and scroll to select TEXT.  Tap on new value line and
+        input a 1.  Click send to see the BUILTIN_LED light.  0 to turn off.
+    - Click 3 down arrows to right of next Unknown Charachteristic puts a slash through the arrows
+        and will now display the received value that the chip sent back to you when you sent the value 
+        (should be the same).
+    
 */
 #include "BLE_example.h"
 String s_Rcvd = "100"; // if 100 don't bother checking case statements
