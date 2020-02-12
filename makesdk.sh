@@ -43,7 +43,11 @@ clearScreen(){
 }
 
 #######################################################################################
-# Set up Variables
+# Set up Arduino Core Variable - change next line when 1.0.29 changes...
+#######################################################################################
+SFCORE="../../AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.29/cores/arduino"
+#######################################################################################
+############## main ###################################################################
 #######################################################################################
 clearScreen 20
 AMSDK=$PWD
@@ -83,11 +87,7 @@ if [ ! -d "../../AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.
   echo SCRIPT WILL NOT RUN UNTIL CORE AND SDK ARE INSTALLED TO CORRECT FOLDERS....BYE...Having fun yet?
   exit 0
 fi
-SFCORE="../../AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.29/cores/arduino"
 echo Current Arduino Core Directory = $SFCORE
-#######################################################################################
-############## main ###################################################################
-#######################################################################################
 clearScreen 4
 echo CONGRATULATIONS...YOUR DIRECTORIES ARE CORRECT....WOOOOOOSHHHH
 echo
