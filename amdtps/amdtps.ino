@@ -9,7 +9,7 @@
       (it is used to determine which pin controls the LED)
     - Compile and upload the example to your board with the Arduino "Upload" button
     - In the nRF Connect app look for the device in the "scan" tab. 
-        (By default it is called "Amdtp" but you can change that with code)
+        (By default it is called "Amdtp" but you can change that with setLocalName function belos)
     - Once the device is found click "connect"
     - The GATT server will load with 4 services:
       - Generic Access
@@ -39,7 +39,6 @@
  *******************************************************************************************************************/
 #include "BLE_example.h"
 String s_Rcvd = "100"; // if 100 don't bother checking case statements
-
 void setup() {
 
   SERIAL_PORT.begin(115200);
@@ -73,6 +72,7 @@ void setup() {
 
    ************************************************************************************************/
   exactle_stack_init();
+  setLocalName("Amdtp"); //Arduino BLE setLocalName equivalent - up to 20 Char's spaces ok
 
   /*************************************************************************************************
       Start the "Amdtp" (AmbiqMicro Data Transfer Protocol) profile. Function in amdtp_main.c

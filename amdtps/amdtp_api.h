@@ -55,6 +55,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+extern uint8_t amdtpScanDataDisc[22]; //Works
 extern void set_led_high( void ); 
 extern void set_led_low( void );
 extern uint8_t bleRxTxReceived(uint8_t * buf, uint16_t len);

@@ -51,6 +51,7 @@ extern "C"
 // Forward declarations.
 //
 //*****************************************************************************
+void setLocalName( String s_Name );
 void exactle_stack_init(void);
 void scheduler_timer_init(void);
 void update_scheduler_timers(void);
@@ -58,6 +59,5 @@ void set_next_wakeup(void);
 void button_handler(wsfEventMask_t event, wsfMsgHdr_t *pMsg);
 extern void AppUiBtnTest(uint8_t btn);
 
-void setAdvName(const char* str);
 
 #endif // _BLE_EXAMPLE_H_

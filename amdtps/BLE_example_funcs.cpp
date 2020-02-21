@@ -1,9 +1,18 @@
 #include "BLE_example.h"
+#include "string.h"
+//*****************************************************************************
+//
+// Arduino Variables
+//
+//*****************************************************************************
 extern String s_Rcvd;
-extern "C" void set_adv_name( const char* str );
-void setAdvName(const char* str){
-    set_adv_name( str );
-}
+//*****************************************************************************
+//
+// Arduino BLE Core Functions
+//
+//*****************************************************************************
+uint8_t amdtpScanDataDisc[22]; //define AdvName Array
+
 
 //*****************************************************************************
 //
@@ -385,6 +394,47 @@ extern "C" void debug_printf(char* fmt, ...){
 #endif //DEBUG  
 }
 
+/*************************************************************************************************/
+/*!
+    \fn     setLocalName
+
+    \brief  Parses global ino file string into BLE advertising name in amdtpScanDataDisc structure
+
+    \param  s_Name = String concatinated to max 20 char's ie: setLocalName("ThisIsTheName");
+
+    \called Arduino setup function, first thing, just sets name in structure for future use
+
+    \return None.
+
+    \note:  Must comment out amdtpScanDataDisc array definition in amdtp_main.c and declare it 
+            as external in amdtp_api.h ie: extern uint8_t amdtpScanDataDisc[22];
+*/
+/*************************************************************************************************/
+// ****************************************
+// 
+// C-callable BLE functions
+// 
+// ****************************************
+void setLocalName( String s_Name ){
+  //following line works - came from amtdp_main.c close to beginning
+  //extern const uint8_t amdtpScanDataDisc[22] = {8,DM_ADV_TYPE_LOCAL_NAME,'R','E','V','1','_','3','W'};
+  
+  int n = s_Name.length(); //Length of string set in ino file as global String (doesn't include teminator) 
+  if ( n > 20) {
+    s_Name = s_Name.substring(0,20); //Only allow up to 20 char's
+    n = s_Name.length(); //need length to change to uint8_t (new length after substring)
+  }
+  int i = 2; //1st char(0) is adv type char + # of char's, 2nd char(1)  is adv type
+  char c_AdvName[n+1]; //create Array large enough to hold chars of string + teminator char 
+  strcpy(c_AdvName, s_Name.c_str()); //copy string to char array
+  //1st char in array must be = to # char's in name (no terminator) + 1 for adv. type.  If off by even 1, 
+  //  the name will not show up in scans
+  amdtpScanDataDisc[0] = n+1; //set first array pos to # of char's + 1 for the type of adv packet
+  amdtpScanDataDisc[1] = DM_ADV_TYPE_LOCAL_NAME; // type of adv packet
+  for(i=2; i<n+2; i++){ //Add the char's from the string to the amdtpScanDataDisc array starting at pos 2
+    amdtpScanDataDisc[i] = c_AdvName[i-2];
+  }
+}
 // ****************************************
 // 
 // C-callable led functions

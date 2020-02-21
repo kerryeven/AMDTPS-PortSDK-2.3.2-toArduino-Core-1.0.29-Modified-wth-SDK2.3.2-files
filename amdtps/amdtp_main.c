@@ -191,17 +191,17 @@ static const uint8_t amdtpAdvDataDisc[] =
 };
 
 /*! scan data, discoverable mode */
-static const uint8_t amdtpScanDataDisc[] =
-{
-  /*! device name */
-  6,                                      /*! length */
-  DM_ADV_TYPE_LOCAL_NAME,                 /*! AD type */
-  'A',
-  'm',
-  'd',
-  't',
-  'p'
-};
+//static const uint8_t amdtpScanDataDisc[] =
+//{
+//  /*! device name */
+//  6,                                      /*! length */
+//  DM_ADV_TYPE_LOCAL_NAME,                 /*! AD type */
+//  'A',
+//  'm',
+//  'd',
+//  't',
+//  'p'
+//};
 
 /**************************************************************************************************
   Client Characteristic Configuration Descriptors
