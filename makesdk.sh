@@ -43,9 +43,9 @@ clearScreen(){
 }
 
 #######################################################################################
-# Set up Arduino Core Variable - change next line when 1.0.29 changes...
+# Set up Arduino Core Variable - change next line when 1.0.30 changes...
 #######################################################################################
-SFCORE="../../AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.29/cores/arduino"
+SFCORE="../../AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.30/cores/arduino"
 #######################################################################################
 ############## main ###################################################################
 #######################################################################################
@@ -65,23 +65,23 @@ if [ ! -d "ambiq_ble" ]; then
   echo THERE.  LOOK AT THE Current Directory = LINE ABOVE TO SEE YOUR CURRENT WORKING DIRECTORY.
   echo
   eco  THE SPARKFUN ARDUINO CORE MUST BE IN:
-  echo    c:/Users/YourUserName/AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.29/cores/arduino
+  echo    c:/Users/YourUserName/AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.30/cores/arduino
   echo
   echo
   echo SCRIPT WILL NOT RUN UNTIL CORE AND SDK ARE INSTALLED TO RECOMMENDED FOLDERS
-  echo PERHAPS A MANUAL 22 STEP COPY FROM THE Port SDK2_3_2 To SparkFun Arduino Core1_0_29.doc file is in order??
+  echo PERHAPS A MANUAL 22 STEP COPY FROM THE Port SDK2_3_2 To SparkFun Arduino Core1_0_30.doc file is in order??
   echo ....BYE...Having fun yet?
   exit 0
 fi
-if [ ! -d "../../AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.29/cores/arduino" ]; then
+if [ ! -d "../../AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.30/cores/arduino" ]; then
   echo
   echo
   echo YOUR SPARKFUN ARDUINO CORE IS NOT IN THE RIGHT PLACE or YOU HAVE NOT CHANGED DIRECTORY IN THE BASH SHELL
-  echo TO THE AmbiqSuiteSDK DIRECTORY.  ONLY WORKS FOR 1.0.29 CORE!
+  echo TO THE AmbiqSuiteSDK DIRECTORY.  ONLY WORKS FOR 1.0.30 CORE!
   echo
   echo THE AmbiqSuiteSDK MUST BE IN:   c:/Users/YourName/Documents/AmbiqSuiteSDK
   echo AND THE SPARKFUN ARDUINO CORE MUST BE IN:
-  echo    c:/Users/YourUserName/AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.29/cores/arduino
+  echo    c:/Users/YourUserName/AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.30/cores/arduino
   echo
   echo
   echo SCRIPT WILL NOT RUN UNTIL CORE AND SDK ARE INSTALLED TO CORRECT FOLDERS....BYE...Having fun yet?
@@ -92,7 +92,7 @@ clearScreen 4
 echo CONGRATULATIONS...YOUR DIRECTORIES ARE CORRECT....WOOOOOOSHHHH
 echo
 echo
-#echo cp -r $PWD/mcu/apollo3 ../../AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.29/cores/arduino/am_skd_ap3/mcu/apollo3
+#echo cp -r $PWD/mcu/apollo3 ../../AppData/Local/Arduino15/packages/SparkFun/hardware/apollo3/1.0.30/cores/arduino/am_skd_ap3/mcu/apollo3
 echo
 #exit 1
 echo mkdir $SFCORE/am_sdk_ap3/third_party/exactle/sw/stack/include/util
